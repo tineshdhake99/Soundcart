@@ -1,0 +1,22 @@
+{
+  "name": "soundcart-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SoundCart musical instrument store using Express and local JSON file storage",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20 <25"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.4.7"
+  }
+}

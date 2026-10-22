@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="Shop guitars, keyboards, drums and musical accessories at SoundCart.">
+  <title>SoundCart — Find Your Sound</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">FREE SHIPPING ON ORDERS ABOVE ₹2,999 <span> • </span> MADE FOR MUSIC LOVERS</div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="SoundCart home"><span class="brand-mark">♫</span> sound<span>cart</span></a>
+    <form id="search-form" class="search"><input id="search-input" type="search" placeholder="Search guitars, keyboards, accessories..." aria-label="Search products"><button aria-label="Search">⌕</button></form>
+    <nav class="header-actions"><button id="auth-open" class="text-button">Sign in</button><button id="cart-open" class="cart-button">Cart <span id="cart-count">0</span></button></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-content"><p class="eyebrow">YOUR SOUND. YOUR STAGE.</p><h1>Find your<br><span>sound.</span></h1><p class="hero-copy">The gear that gets you playing. Instruments and essentials for every kind of musician.</p><a href="#shop" class="primary-button">Shop instruments <span>↗</span></a><div class="hero-proof"><span>★ 4.8/5</span><span>Trusted by 10k+ music lovers</span></div></div>
+      <div class="hero-image" role="img" aria-label="Acoustic guitar"></div>
+      <div class="hero-tag"><span>01 / 05</span><b>Make some noise.</b></div>
+    </section>
+    <section class="category-section">
+      <div class="section-heading"><div><p class="eyebrow">EXPLORE THE STORE</p><h2>Shop by category</h2></div><a href="#shop" class="subtle-link">View all products ↗</a></div>
+      <div id="categories" class="category-grid">
+        <button class="category-card active" data-category="All"><span class="category-symbol">✦</span><b>All gear</b><small>Explore everything</small></button>
+        <button class="category-card" data-category="Acoustic Guitars"><span class="category-symbol">♬</span><b>Acoustic guitars</b><small>Warm & natural</small></button>
+        <button class="category-card" data-category="Electric Guitars"><span class="category-symbol">ϟ</span><b>Electric guitars</b><small>Turn it up</small></button>
+        <button class="category-card" data-category="Keyboards"><span class="category-symbol">▥</span><b>Keyboards</b><small>Find your keys</small></button>
+        <button class="category-card" data-category="Drums"><span class="category-symbol">◉</span><b>Drums</b><small>Feel the rhythm</small></button>
+        <button class="category-card" data-category="Accessories"><span class="category-symbol">✧</span><b>Accessories</b><small>Small things matter</small></button>
+      </div>
+    </section>
+    <section id="shop" class="products-section">
+      <div class="section-heading"><div><p class="eyebrow">HANDPICKED FOR YOU</p><h2>Featured gear</h2><p id="results-count" class="muted">Loading products…</p></div><label class="sort-label">Sort by <select id="sort-select"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name</option></select></label></div>
+      <div id="product-grid" class="product-grid"><div class="loading">Tuning the store…</div></div>
+      <p id="empty-state" class="empty-state hidden">No products found. Try another search or category.</p>
+    </section>
+    <section class="benefits"><div><span>↗</span><b>Genuine gear</b><small>Quality you can trust</small></div><div><span>□</span><b>Easy checkout</b><small>Simple and secure demo flow</small></div><div><span>♫</span><b>Made for musicians</b><small>For first notes to big stages</small></div><div><span>♡</span><b>Here to help</b><small>Support for your music journey</small></div></section>
+  </main>
+  <footer><a class="brand" href="/"><span class="brand-mark">♫</span> sound<span>cart</span></a><p>Find your sound. Play your story.</p><small>Student project demo • Prices are illustrative and may not reflect live marketplace prices.</small></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <section id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <button class="modal-close" data-close aria-label="Close">×</button><p class="eyebrow">WELCOME TO SOUNDCART</p><h2 id="auth-title">Sign in</h2><p class="muted">Save your details and view your orders.</p>
+      <div class="auth-tabs"><button class="active" data-auth-mode="login">Sign in</button><button data-auth-mode="register">Create account</button></div>
+      <form id="auth-form"><label id="name-field" class="hidden">Name<input name="name" minlength="2" autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Password<input name="password" type="password" required minlength="8" autocomplete="current-password"></label><button class="primary-button full" type="submit">Continue <span>→</span></button></form>
+      <p class="fine-print">Demo account data is stored locally on the computer running the server.</p>
+    </section>
+    <section id="cart-modal" class="modal cart-modal hidden" role="dialog" aria-modal="true" aria-labelledby="cart-title"><button class="modal-close" data-close aria-label="Close">×</button><p class="eyebrow">YOUR SELECTION</p><h2 id="cart-title">Shopping cart</h2><div id="cart-items"></div><div class="cart-total"><span>Subtotal</span><strong id="cart-total">₹0</strong></div><button id="checkout-open" class="primary-button full">Continue to checkout <span>→</span></button><p class="fine-print">Checkout is a demo; no real payment is collected.</p></section>
+    <section id="checkout-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkout-title"><button class="modal-close" data-close aria-label="Close">×</button><p class="eyebrow">ALMOST YOURS</p><h2 id="checkout-title">Delivery details</h2><form id="checkout-form" class="checkout-form"><label>Full name<input name="fullName" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Mobile number<input name="phone" inputmode="numeric" pattern="[6-9][0-9]{9}" minlength="10" maxlength="10" required></label><label>Address<input name="address" required autocomplete="street-address"></label><div class="form-row"><label>City<input name="city" required autocomplete="address-level2"></label><label>PIN code<input name="pincode" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" required autocomplete="postal-code"></label></div><button class="primary-button full" type="submit">Place demo order <span>→</span></button></form><p class="fine-print">Sign in is required. No real payment is collected.</p></section>
+  </div>
+</body>
+</html>
